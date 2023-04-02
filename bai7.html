@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>bai7</title>
+    </head>
+    <body>
+        <script>
+            // Tạo một mảng để thể hiện kích thước đàn của bạn và ghi lại tất cả kích thước đàn của bạn, đầu ra màn hình dự kiến:
+            let sheepSizes = [5, 7, 300, 90, 24, 50, 75];
+            console.log(`Xin chào, đây là kích thước đàn cừu của tôi: ${sheepSizes}`);
+            // Cuối mỗi tháng, bạn phải chọn một và chỉ một con cừu để xén lông và do đó bạn muốn chọn con lớn nhất để tối đa hóa lợi nhuận của mình.
+            // Thêm tập lệnh để tìm kiếm những con cừu lớn nhất trong danh sách của bạn:
+            let max = Math.max(...sheepSizes);
+            console.log(`Con cừu lớn nhất của tôi có kích thước ${max}, hãy cạo nó`);
+            // Sau khi cạo lông, kích thước của nó sẽ trở về kích thước mặc định, là 8.
+            let index = sheepSizes.indexOf(max);
+            sheepSizes[index] = 8;
+            console.log(`sau khi cạo lông, đây là đàn cừu của tôi ${sheepSizes}`);
+
+            // Trong tháng tiếp theo, MỌI con cừu trong đàn của bạn lớn lên, kích thước của chúng tăng thêm 50. Đăng xuất chúng
+            // for (let i = 0; i < sheepSizes.length; i++) {
+            //     sheepSizes[i] += 50;
+            // }
+            // console.log("MONTH 1");
+            // console.log(`Đã một tháng trôi qua, đàn cừu của tôi đã lớn, đây là kích thước của chúng ${sheepSizes}`);
+            // // Tìm con cừu lớn nhất hiện tại và cạo lông nó
+            // let maxSizes = Math.max(...sheepSizes);
+            // let indexSheep = sheepSizes.indexOf(maxSizes);
+            // sheepSizes.splice(indexSheep, 0);
+
+            // sheepSizes[indexSheep] = 8;
+            // console.log(`Bây giờ con cừu lớn nhất của tôi có kích thích ${maxSizes}, hãy cạo nó
+            // Sau khi xén lông, đây là đàn cừu của tôi ${sheepSizes}`);
+
+            for (let i = 1; i <= 3; i++) {
+                for (let i = 0; i < sheepSizes.length; i++) {
+                    sheepSizes[i] += 50;
+                }
+                console.log("MONTH ", i);
+                console.log(`Đã một tháng trôi qua, đàn cừu của tôi đã lớn, đây là kích thước của chúng ${sheepSizes}`);
+                // Tìm con cừu lớn nhất hiện tại và cạo lông nó
+                let maxSizes = Math.max(...sheepSizes);
+                let indexSheep = sheepSizes.indexOf(maxSizes);
+                sheepSizes.splice(indexSheep, 0);
+
+                sheepSizes[indexSheep] = 8;
+                console.log(`Bây giờ con cừu lớn nhất của tôi có kích thích ${maxSizes}, hãy cạo nó
+                Sau khi xén lông, đây là đàn cừu của tôi ${sheepSizes}`);
+            }
+            // Sau ngày ngày xén lông cừu, bạn trở nên buồn chán. Bạn muốn bán đàn của mình để đi du lịch khắp thế giới. Để có thương mại công bằng, bây giờ bạn phải tính toán tổng kích thước đàn cừu của bạn và sau đó là số tiền dự kiến bạn có thể nhận được từ việc bán đàn của mình, trước khi đưa ra thị trường.
+            //  Viết một chương trình để tính tổng kích thước đàn cừu của bạn cũng như số tiền bạn sẽ có. Đầu ra bảng điều khiển mong đợi:
+            let sum = sheepSizes.reduce((total, size) => total + size, 0);
+            console.log("Đàn của tôi có tổng kích thước:", sum);
+
+            // tính số tiền bạn có thể nhận được
+            let money = sum * 2;
+            console.log(`Tôi sẽ lấy ${sum} * 2$ = ${money}`);
+        </script>
+    </body>
+</html>

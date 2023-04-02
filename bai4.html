@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>bai4</title>
+    </head>
+    <body>
+        <script>
+            // Khai báo mảng một chiều
+            let arr = [];
+            // Cho phép người dùng nhập các giá trị của mảng bằng hàm prompt và lưu trữ giá trị trong mảng
+            //  cho đến khi người dùng nhập một giá trị không phải là số, một chuỗi trống hoặc nhấn “Cancel”
+            while (true) {
+                let input = prompt("Hãy nhập gía trị cho mảng: ");
+                if (isNaN(input) || input === null || input === "") {
+                    break;
+                }
+                arr.push(Number(input));
+            }
+            // Tính tổng các giá trị của mảng, in ra phần tử có giá trị max - min (không và có sử dụng hàm Math.max và Math.min)
+            let sum = 0;
+            for (let i = 0; i < arr.length; i++) {
+                sum += arr[i];
+            }
+            console.log(sum);
+        </script>
+    </body>
+</html>

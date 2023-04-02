@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>bai5</title>
+    </head>
+    <body>
+        <script>
+            // Yêu cầu người dùng nhập giá trị a và b
+            let a = parseInt(prompt("Nhập giá trị a:"));
+            let b = parseInt(prompt("Nhập giá trị b:"));
+
+            // Khởi tạo mảng gồm các phần tử của mảng số nguyên nằm giữa a và b
+            let arr = [];
+            for (let i = a + 1; i < b; i++) {
+                arr.push(i);
+            }
+
+            // In mảng vừa tạo ra
+            console.log("Mảng các số nguyên nằm giữa a và b là:", arr);
+        </script>
+    </body>
+</html>

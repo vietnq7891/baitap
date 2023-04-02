@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>bai6</title>
+    </head>
+    <body>
+        <script>
+            // Tạo một mảng chứa ít nhất 5 số, sau đó yêu cầu người dùng nhập một số, thực hiện tìm kiếm để tìm số trong mảng,
+            //  nếu số được tìm thấy, hãy cho người dùng biết rằng với chỉ số của nó trong mảng, nếu không, cũng nói với họ như vậy
+            const arr = [3, 4, 6, -9, 10, -88, 2];
+            let number = parseInt(prompt("Nhập vào một số: "));
+            if (arr.includes(number)) {
+                let index = arr.indexOf(number);
+                alert(`Số ${number} được tìm thấy tại chỉ số ${index} trong mảng `);
+            } else {
+                alert(`số ${number} không được tìm thấy trong mảng`);
+            }
+        </script>
+    </body>
+</html>

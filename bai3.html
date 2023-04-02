@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>bai3</title>
+    </head>
+    <body>
+        <script>
+            // Tạo mảng có tên là styles có giá trị các phần tử là “Jazz”, “Blues”
+            let styles = ["Jazz", "Blues"];
+            // Thêm phần tử “Rock-n-Roll” vào cuối mảng
+            styles.push("Rock-n-Roll");
+            // Thay thế phần tử nằm chính giữa mảng bằng “Classics” nếu mảng có tổng số phần tử là lẻ
+            // Kiểm tra tổng số phần tử của mảng, nếu là số lẻ thì thay thế phần tử giữa bằng Classics
+            if (styles.length % 2 !== 0) {
+                let middleIndex = Math.floor(styles.length / 2);
+                styles[middleIndex] = "Classics";
+            }
+            // Xóa phần tử đầu tiên của mảng và hiển thị mảng
+            styles.shift();
+            console.log(styles);
+            // Thêm phần tử “Rap” và “Reggae” vào đầu mảng và hiển thị
+            styles.unshift("Rap", "Reggae");
+            console.log(styles);
+        </script>
+    </body>
+</html>

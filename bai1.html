@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>bai1</title>
+    </head>
+    <body>
+        <script>
+            var arrayInt = [];
+            // Nhập 5 giá trị số nguyên cho mảng từ bàn phím
+            for (var i = 0; i < 5; i++) {
+                arrayInt[i] = parseInt(prompt(`hãy nhập gía trị cho phần tử ${i + 1}: `));
+            }
+            // Hiển thị giá trị các phần tử của mảng
+            console.log(arrayInt);
+            // In các phần tử có giá trị chẵn và tính tổng
+            var evenSum = 0;
+            for (var i = 0; i < arrayInt.length; i++) {
+                if (arrayInt[i] % 2 === 0) {
+                    console.log(arrayInt[i]);
+                    evenSum += arrayInt[i];
+                }
+            }
+            console.log(`Tổng các phần tử có giá trị chẵn là: ${evenSum}`);
+            // In các phần tử có chỉ số lẻ và tính tổng
+            var oddSum = 0;
+            for (var i = 1; i < arrayInt.length; i += 2) {
+                console.log(arrayInt[i]);
+                oddSum += arrayInt[i];
+            }
+            console.log(`Tổng các phần tử có chỉ số lẻ là: ${oddSum}`);
+            // In giá trị các phần tử trong mảng là số nguyên tố
+            for (var i = 0; i < arrayInt.length; i++) {
+                var isPrime = true;
+                if (arrayInt[i] < 2) {
+                    isPrime = false;
+                } else {
+                    for (var j = 2; j <= Math.sqrt(arrayInt[i]); j++) {
+                        if (arrayInt[i] % j === 0) {
+                            isPrime = false;
+                            break;
+                        }
+                    }
+                }
+                if (isPrime) {
+                    console.log(`Các phần tử trong mảng là số nguyên tố là: ${arrayInt[i]}`);
+                }
+            }
+            // In các phần tử có giá trị là max hoặc min
+            var max = arrayInt[0];
+            var min = arrayInt[0];
+            for (var i = 1; i < arrayInt.length; i++) {
+                if (arrayInt[i] > max) {
+                    max = arrayInt[i];
+                }
+                if (arrayInt[i] < min) {
+                    min = arrayInt[i];
+                }
+            }
+            console.log(`Các phần tử có giá trị max là: ${max}`);
+            console.log(`Các phần tử có giá trị min là: ${min}`);
+            // Sắp xếp mảng giảm dần và in giá trị các phần tử mảng sau khi sắp xếp (không và có sử dụng hàm sort)
+            // không dùng hàm sort
+            for (let i = 1; i < arrayInt.length; i++) {
+                let current = arrayInt[i];
+                let j = i - 1;
+                while (j >= 0 && arrayInt[j] < current) {
+                    arrayInt[j + 1] = arrayInt[j];
+                    j--;
+                }
+                arrayInt[j + 1] = current;
+            }
+            console.log(arrayInt);
+            // dùng hàm sort
+            arrayInt.sort((a, b) => b - a);
+            console.log(arrayInt);
+        </script>
+    </body>
+</html>

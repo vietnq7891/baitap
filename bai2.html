@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>bai2</title>
+    </head>
+    <body>
+        <script>
+            // Khai báo mảng 2 chiều số nguyên arrInt
+            const rows = 3;
+            const cols = 4;
+            const arrInt = new Array(rows);
+            for (let i = 0; i < rows; i++) {
+                arrInt[i] = new Array(cols);
+            }
+
+            // Nhập giá trị các phần tử của mảng từ bàn phím
+            for (let i = 0; i < rows; i++) {
+                for (let j = 0; j < cols; j++) {
+                    arrInt[i][j] = parseInt(prompt(`Nhập giá trị của phần tử [${i}][${j}]:`));
+                }
+            }
+            // In giá trị các phần tử của mảng
+            console.log("Các phần tử của mảng:");
+            for (let i = 0; i < rows; i++) {
+                console.log(arrInt[i]);
+            }
+            // In giá trị các phần tử nằm trên đường biên (Coi mảng 2 chiều là ma trận)
+            console.log("Các phần tử nằm trên đường biên:");
+            for (let i = 0; i < rows; i++) {
+                for (let j = 0; j < cols; j++) {
+                    if (i === 0 || i === rows - 1 || j === 0 || j === cols - 1) {
+                        console.log(arrInt[i][j]);
+                    }
+                }
+            }
+            // In giá trị các phần tử nằm trên đường chéo chính và phụ
+            console.log("Các phần tử nằm trên đường chéo chính và phụ:");
+            for (let i = 0; i < rows; i++) {
+                for (let j = 0; j < cols; j++) {
+                    if (i === j || i + j === rows - 1) {
+                        console.log(arrInt[i][j]);
+                    }
+                }
+            }
+            // Sắp xếp mảng tăng dần theo dòng (không sử dụng hàm sort)
+            console.log("Mảng sau khi sắp xếp tăng dần theo dòng:");
+            for (let i = 0; i < rows; i++) {
+                for (let j = 0; j < cols - 1; j++) {
+                    for (let k = j + 1; k < cols; k++) {
+                        if (arrInt[i][j] > arrInt[i][k]) {
+                            let temp = arrInt[i][j];
+                            arrInt[i][j] = arrInt[i][k];
+                            arrInt[i][k] = temp;
+                        }
+                    }
+                }
+                console.log(arrInt[i]);
+            }
+            // Sắp xếp mảng tăng dần theo dòng (sử dụng hàm sort)
+            console.log("Mảng sau khi sắp xếp tăng dần theo dòng (sử dụng hàm sort):");
+            for (let i = 0; i < rows; i++) {
+                arrInt[i].sort((a, b) => a - b);
+                console.log(arrInt[i]);
+            }
+        </script>
+    </body>
+</html>
