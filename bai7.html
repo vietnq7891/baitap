@@ -44,8 +44,6 @@
                 // Tìm con cừu lớn nhất hiện tại và cạo lông nó
                 let maxSizes = Math.max(...sheepSizes);
                 let indexSheep = sheepSizes.indexOf(maxSizes);
-                sheepSizes.splice(indexSheep, 0);
-
                 sheepSizes[indexSheep] = 8;
                 console.log(`Bây giờ con cừu lớn nhất của tôi có kích thích ${maxSizes}, hãy cạo nó
                 Sau khi xén lông, đây là đàn cừu của tôi ${sheepSizes}`);
