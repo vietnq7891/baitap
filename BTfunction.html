@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Bai1</title>
+    </head>
+    <body>
+        <script>
+            // Viết function in ra câu “Xin chào Rikkei Academy”
+            function hello() {
+                return alert("Xin chào Rikkei Academy");
+            }
+
+            hello();
+
+            // Viết function tính bình phương của một số
+            // cách 1
+            function square(num) {
+                return num ** 2;
+            }
+            console.log(square(8));
+
+            // cách 2
+            function square2(num) {
+                return Math.pow(num, 2);
+            }
+            console.log(square2(4));
+
+            // Viết function tính thế kỷ của một năm nhập vào từ bàn phím. Biết thế kỷ thứ
+            // nhất tính từ năm 1 đến 100
+            function century(year) {
+                let yearInt = Math.ceil(year / 100);
+                return yearInt;
+            }
+            let year = prompt("Nhập vào năm:");
+            console.log("Năm " + year + " thuộc thế kỷ thứ " + century(year));
+
+            // Cho chuỗi dài hơn 15 ký tự, viết function cắt chuỗi, lấy ra 10 ký tự đầu tiên và
+            // thêm vào dấu “…” ở cuối chuỗi
+            function truncateString(str) {
+                if (str.length > 15) {
+                    str = str.slice(0, 10) + "...";
+                }
+                return str;
+            }
+            let longStr = "chuoi dai hon 15 ky tu";
+            console.log(truncateString(longStr));
+
+            // Viết function chuẩn hóa một từ - chỉ viết hoa chữ cái đầu tiên. Ví dụ: “rIkKEi”
+            // sau khi chuẩn hóa thành “Rikkei”
+            function capitalize(input) {
+                let changeStr = input.charAt(0).toUpperCase() + input.slice(1).toLowerCase();
+                return changeStr;
+            }
+            console.log(capitalize("rIkKEi"));
+        </script>
+    </body>
+</html>
