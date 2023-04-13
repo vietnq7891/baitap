@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="./style.css" />
+    </head>
+
+    <body>
+        <form action="">
+            <table>
+                <tr>
+                    <th colspan="4">Form đặt hàng online:</th>
+                </tr>
+                <tr>
+                    <td colspan="2">Thông tin người mua</td>
+                    <td colspan="2">Thông tin người nhận</td>
+                </tr>
+                <tr>
+                    <td>Họ và tên</td>
+                    <td><input type="text" class="namebuy" /></td>
+                    <td><input type="checkbox" class="receiver" />Tôi là người nhận</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td><input type="email" class="emailbuy" /></td>
+                    <td>Họ và tên</td>
+                    <td><input type="text" class="namereceive" /></td>
+                </tr>
+                <tr>
+                    <td>Điện thoại</td>
+                    <td><input type="tel" class="phonebuy" /></td>
+                    <td>Email</td>
+                    <td><input type="text" class="emailreceive" /></td>
+                </tr>
+                <tr>
+                    <td>Địa chỉ</td>
+                    <td><input type="text" class="addressbuy" /></td>
+                    <td>Điện thoại</td>
+                    <td><input type="tel" class="phonereceive" /></td>
+                </tr>
+                <tr>
+                    <td>Ngày đặt</td>
+                    <td><input type="text" class="dateorder" /></td>
+                    <td>Địa chỉ</td>
+                    <td><input type="text" class="addressreceive" /></td>
+                </tr>
+                <tr>
+                    <td>Phương thức thanh toán</td>
+                    <td><input type="text" class="payment" /></td>
+                    <td rowspan="3">Ghi chú</td>
+                    <td rowspan="3"><textarea name="memo" id="" cols="30" rows="5"></textarea></td>
+                </tr>
+                <tr>
+                    <td>Địa chỉ</td>
+                    <td><input type="text" /></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="sendmail" />Gửi mail cho tôi</td>
+                </tr>
+                <tr>
+                    <td style="text-align: center" ; colspan="4">
+                        <button class="submit" style="margin-right: 10px">Đặt hàng</button>
+                        <button class="reset">Nhập lại</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <script src="./app.js"></script>
+    </body>
+</html>

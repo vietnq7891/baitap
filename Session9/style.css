@@ -1,0 +1,30 @@
+form {
+    width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: 5px 5px 10px 5px #b3b0b0;
+    font-size: 20px;
+}
+
+table {
+    width: 100%;
+    border: 3px solid #999;
+    padding: 20px;
+}
+
+th {
+    text-align: left;
+    padding-bottom: 10px;
+    font-size: 30px;
+}
+
+
+
+input {
+    padding: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    cursor: pointer;
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+
+    <body>
+        <p><b>Tài khoản</b> <input type="text" id="username" /></p>
+        <p><b>Mật khẩu</b> <input type="password" id="password" /></p>
+        <button id="login">Đăng nhập</button>
+        <button id="register"><a href="./register.html">Đăng ký</a></button>
+        <style>
+            a {
+                text-decoration: none;
+                color: #000;
+            }
+        </style>
+        <script>
+            /*
+        Thêm tính năng đăng ký user. User là một đối tượng gồm username, password, email, phone. Sau khi đăng ký thành công sẽ lưu danh sách user vào localStorage.
+        Lúc đăng nhập sẽ kiểm tra thông tin username, password từ trong danh sách các đối tượng user đã đăng ký lưu ở localStorage
+        */
+            let login = document.getElementById("login");
+            let username = document.getElementById("username");
+            let password = document.getElementById("password");
+            login.onclick = () => {
+                var users = JSON.parse(localStorage.getItem("users")) || [];
+                var user = users.find(function (user) {
+                    return user.username === username.value && user.password === password.value;
+                });
+                if (user) {
+                    sessionStorage.setItem("username", username.value);
+                    window.location.href = "home.html";
+                } else {
+                    alert("Đăng nhập không thành công. Vui lòng kiểm tra lại tên đăng nhập và mật khẩu!");
+                }
+            };
+        </script>
+    </body>
+</html>
