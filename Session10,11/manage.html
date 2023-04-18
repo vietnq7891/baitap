@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <form id="register-form">
+            <input type="hidden" class="taskId" />
+            <label for="username">Username</label>
+            <input type="text" class="username" name="username" placeholder="Enter your username" />
+
+            <label for="password">Password</label>
+            <input type="password" class="password" name="password" placeholder="Enter your password" />
+
+            <label for="email">Email</label>
+            <input type="email" class="email" name="email" placeholder="Enter your email" />
+
+            <label for="phone">Phone</label>
+            <input type="tel" class="phone" name="phone" placeholder="Enter your phone number" />
+
+            <button class="btnSave" type="submit">Save</button>
+        </form>
+        <table border="1" cellspacing="0" cellpadding="5" width="100%">
+            <thead>
+                <th>No.</th>
+                <th>Username</th>
+                <th>Password</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Action</th>
+            </thead>
+            <tbody class="list"></tbody>
+        </table>
+        <style>
+            form {
+                width: 50%;
+                margin: 0 auto;
+                padding: 20px;
+                border: 1px solid #f1f1f1;
+                border-radius: 5px;
+            }
+
+            input {
+                width: 100%;
+                padding: 12px 20px;
+                margin: 8px 0;
+                display: inline-block;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+            }
+
+            button {
+                background-color: #4caf50;
+                color: white;
+                padding: 14px 20px;
+                margin: 8px 0;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+
+            button:hover {
+                background-color: #45a049;
+            }
+        </style>
+        <script src="./jquery.js"></script>
+        <script>
+            class Task {
+                constructor(id = 0, username, password, email, phone) {
+                    this.id = id;
+                    this.username = username;
+                    this.password = password;
+                    this.email = email;
+                    this.phone = phone;
+                }
+            }
+
+            var users = JSON.parse(localStorage.getItem("users")) || [];
+
+            function loadusers() {
+                let rows = "";
+                for (let t of users) {
+                    rows += `<tr data-id="${t.id}">
+                    <td>${t.id}</td>
+                    <td>${t.username}</td>
+                    <td>${t.password}</td>
+                    <td>${t.email}</td>
+                    <td>${t.phone}</td>
+                    <td>
+                        <button class="btnEdit">Edit</button>
+                        <button class="btnDel">Delete</button>
+                    </td>
+                </tr>`;
+                }
+                $(".list").html(rows);
+            }
+
+            $(document).on("click", ".btnEdit", function () {
+                let tr = $(this).parents("tr");
+                let id = $(tr).data("id");
+                let _task = users.find((t) => t.id == id);
+                $(".taskId").val(_task.id);
+                $(".username").val(_task.username);
+                $(".password").val(_task.password);
+                $(".email").val(_task.email);
+                $(".phone").val(_task.phone);
+            });
+            $(document).on("click", ".btnDel", function () {
+                if (confirm("Bạn có muốn xóa task không?")) {
+                    let tr = $(this).parents("tr");
+                    let id = $(tr).data("id");
+                    let _taskIndex = users.findIndex((t) => t.id == id);
+                    users.splice(_taskIndex, 1);
+                    localStorage.setItem("users", JSON.stringify(users));
+                    loadusers();
+                }
+            });
+            $(".btnSave").click(function () {
+                if ($(".taskId").val() != "") {
+                    let id = parseInt($(".taskId").val());
+                    for (let i = 0; i < users.length; i++) {
+                        if (users[i].id == id) {
+                            users[i].username = $(".username").val();
+                            users[i].password = $(".password").val();
+                            users[i].email = $(".email").val();
+                            users[i].phone = $(".phone").val();
+                            break;
+                        }
+                    }
+                } else {
+                    let newTask = new Task();
+                    newTask.id = users.length + 1;
+                    newTask.username = $(".username").val();
+                    newTask.password = $(".password").val();
+                    newTask.email = $(".email").val();
+                    newTask.phone = $(".phone").val();
+
+                    users.push(newTask);
+                }
+                $(".taskId").val("");
+                $(".username").val("");
+                $(".password").val("");
+                $(".email").val("");
+                $(".phone").val("");
+
+                localStorage.setItem("users", JSON.stringify(users));
+                loadusers();
+            });
+            loadusers();
+        </script>
+    </body>
+</html>

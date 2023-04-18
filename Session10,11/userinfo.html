@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <form id="update-form">
+            <label for="username">Username *</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username" />
+            <label for="newusername"> New Username</label>
+            <input type="text" id="newusername" name="newusername" placeholder="Enter your new username" />
+
+            <label for="password">Password *</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" />
+            <label for="newpassword">New Password</label>
+            <input type="password" id="newpassword" name="password" placeholder="Enter your new password" />
+
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" />
+            <label for="newemail">New Email</label>
+            <input type="email" id="newemail" name="email" placeholder="Enter your new email" />
+
+            <label for="phone">Phone *</label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" />
+            <label for="newphone">New Phone</label>
+            <input type="tel" id="newphone" name="phone" placeholder="Enter your phone new number" />
+
+            <button id="update" type="button">Update</button>
+        </form>
+        <style>
+            form {
+                width: 50%;
+                margin: 0 auto;
+                padding: 20px;
+                border: 1px solid #f1f1f1;
+                border-radius: 5px;
+            }
+
+            input {
+                width: 100%;
+                padding: 12px 20px;
+                margin: 8px 0;
+                display: inline-block;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+            }
+
+            button {
+                background-color: #4caf50;
+                color: white;
+                padding: 14px 20px;
+                margin: 8px 0;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+
+            button:hover {
+                background-color: #45a049;
+            }
+        </style>
+        <script src="jquery.js"></script>
+        <script>
+            var users = JSON.parse(localStorage.getItem("users")) || [];
+            $(document).on("click", "#update", function (event) {
+                if (
+                    $("#username").val() == "" &&
+                    $("#password").val() == "" &&
+                    $("#email").val() == "" &&
+                    $("#phone").val() == ""
+                ) {
+                    alert("Vui lòng nhập đầy đủ thông tin các mục có dấu *");
+                } else {
+                    var item = users.find((value) => {
+                        return (
+                            value.username == $("#username").val() &&
+                            value.password == $("#password").val() &&
+                            value.email == $("#email").val() &&
+                            value.phone == $("#phone").val()
+                        );
+                    });
+                    if (item == undefined) {
+                        alert("Thông tin ở mục * nhập chưa đúng, vui lòng kiểm tra lại");
+                    } else {
+                        if ($("#newusername").val() == "") {
+                            item.username = $("#username").val();
+                        } else {
+                            item.username = $("#newusername").val();
+                        }
+                        if ($("#newpassword").val() == "") {
+                            item.password = $("#password").val();
+                        } else {
+                            item.password = $("#newpassword").val();
+                        }
+                        if ($("#newemail").val() == "") {
+                            item.email = $("#email").val();
+                        } else {
+                            item.email = $("#newemail").val();
+                        }
+                        if ($("#newphone").val() == "") {
+                            item.phone = $("#phone").val();
+                        } else {
+                            item.phone = $("#newphone").val();
+                        }
+                        localStorage.setItem("users", JSON.stringify(users));
+                        window.location.href = "login.html";
+                        alert("Bạn đã update thành công");
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>
